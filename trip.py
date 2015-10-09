@@ -1,8 +1,8 @@
 __author__ = 'Genevieve'
 
 class Error:
-    def exceptions(self):
-
+    def exceptions(self, exceptions):
+        self.exceptions = exceptions
 
 class Country:
     def __init__(self, name="", currency_code="", currency_symbol=""):
@@ -35,12 +35,6 @@ class Details:
         self.date_string = date_string
         return
 
-    def is_empty(self):
-
-
-<<<<<< Updated upstream
-
-=======
-#
->>>>>>> Stashed changes
+    def is_empty(self, is_empty):
+        self.is_empty = is_empty
 

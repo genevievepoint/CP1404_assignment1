@@ -11,9 +11,10 @@ def convert(amount, home_currency, location_currency_code):
     amount = input("please enter the amount you wish to convert")
     home_currency = input("Please enter your current currency")
     location_currency_code = input("Please enter where you are going")
-    url_string = 'https://www.google.com/finance/converter?a=&from=&to='
+    url = 'https://www.google.com/finance/converter='
+    values = {amount, home_currency, location_currency_code}
+    url_string = url + values
     result = web_utility.load_page(url_string)
-    result = self.currency_symbol()
     print(result[result.index('result'):])
 
 
