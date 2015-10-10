@@ -9,6 +9,10 @@ open('currency_details.txt', encoding='utf-8')
 
 def convert(amount, home_currency, location_currency_code):
     amount = input("please enter the amount you wish to convert")
+    if amount <= 0:
+        error
+    else:
+
     home_currency = input("Please enter your current currency")
     location_currency_code = input("Please enter where you are going")
     url = 'https://www.google.com/finance/converter='
