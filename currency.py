@@ -22,16 +22,15 @@ def convert(amount, home_currency, location_currency_code):
 
 def details(country_name):
     in_file = open("currency_details.txt", 'r', encoding='utf-8')
-    lines = in_file.readline()
+    lines = in_file.readlines()
     if country_name == '':
-        return tuple()
+         return tuple()
     for line in lines:
         if country_name in line:
             line = line.strip().split(',')
             line_info = line[0], line[1], line[2]
             return tuple(line_info)
-        else:
-            return tuple()
+    return tuple()
         # parts = line.strip().split(',')
         # if parts[0] == country_name:
         #     found = True
@@ -55,7 +54,7 @@ def main():
             valid = 'valid conversion'
         print(valid, amount[i], home_currency_code[i], ' -> ', location_currency_code[i], test)
 
-    country_name = ('Unknown', 'Japanese', ' ', 'Australia', 'Japan', 'Hong Kong')
+    country_name = ('Unknown', 'Japanese', '', 'Australia', 'Japan', 'Hong Kong')
     for i in range(0, 3):
         print('invalid details ', details(country_name[i]))
     for i in range(3, 6):
