@@ -1,5 +1,6 @@
 __author__ = 'Genevieve'
 
+import re
 from web_utility import load_page
 from trip import Country
 from trip import Details
@@ -17,10 +18,24 @@ def convert(amount, home_currency, location_currency_code):
 
     home_currency = get_details()
     location_currency_code = get_details()
-    url = 'https://www.google.com/finance/converter?a='.join(amount, home_currency, location_currency_code)
-    url_string = url
-    result = web_utility.load_page(url_string)
-    print(result[result.index('result'):])
+    url = 'https://www.google.com/finance/converter'
+    values = {'a': amount, 'from': home_currency, 'to': location_currency_code}
+    data = urllib.parse.urlopen(values)
+    data = data.encode('utf-8')
+    req = urllib.request.Request(url, data)
+    resp = urllib.request.urlopen(req)
+    respData = resp.read()
+
+    # print(respData)
+
+    paragraphs = re.findall('r'<p>()</p>,str(respData))
+
+    for eachP in paragraphs:
+        print(eachP)
+
+    # url_string = url
+    # result = web_utility.load_page(url_string)
+    # print(result[result.index('result'):])
 
 
 def get_details(country_name):

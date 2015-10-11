@@ -1,8 +1,9 @@
 __author__ = 'Genevieve'
 
 class Error:
-    def exceptions(self, exceptions):
-        self.exceptions = exceptions
+ except: (Exception)
+ print("Failure to proceed because of: ", Exception)
+        # self.exceptions = exceptions
 
 class Country:
     def __init__(self, name="", currency_code="", currency_symbol=""):
