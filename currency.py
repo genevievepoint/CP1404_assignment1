@@ -42,7 +42,7 @@ def details(country_name):
 
 
 def main():
-    amount = [1.00, 1.00, 1.00, 10.95, 943.18, 10.95, 13.62, 200.15, 13859.49, 100.00, 0.83, 19.99, 34.58, 19.99, 27.80]
+    amount = [1.00, 1.00, 1.00, 10.95, convert(10.95,'AUD', 'JPY'), 10.95, convert(10.95, 'AUD', 'BGN'), 200.15, 13859.49, 100.00, 0.83, 19.99, 34.58, 19.99, 27.80]
     home_currency_code = ['AUD', 'JPY', 'ABC', 'AUD', 'JPY', 'AUD', 'BGN', 'BGN', 'JPY', 'JPY', 'USD', 'USD', 'BGN', 'USD', 'AUD']
     location_currency_code = ['AUD', 'ABC', 'USD', 'JPY', 'AUD', 'BGN', 'AUD', 'JPY', 'BGN', 'USD', 'JPY', 'BGN', 'USD', 'AUD', 'USD']
 
