@@ -13,6 +13,7 @@ class Country:
         self.currency_symbol = currency_symbol
 
     def currency_string(self, amount):
+        # formats the currency to two decimal places
         amount = '{:.2f}'.format(amount)
         return str(amount)
 
@@ -28,6 +29,7 @@ class Details:
         self.locations = []
 
     def add(self, country_name, start_date, end_date):
+        # adds a start date and end date makes sure that the date is in the correct format
         self.locations.append((country_name, start_date, end_date))
         start_date = start_date.strip().split('/')
         if not len(start_date[0]) == 4 or len(start_date[1]) == 2 or len(start_date[2]) == 2:
@@ -50,12 +52,14 @@ class Details:
 
     # doesn't work properly
     def is_empty(self, is_empty):
+        # creates a true of false error
         if self.locations is '':
             return True
         else:
             return False
 
 
+# testing to see if stuff works
 def main():
     australia = Country('Australia', 'AUD', '$')
     print(australia.currency_string(100.236))
