@@ -21,36 +21,39 @@ class Country:
 
 
 class Details:
-    def __init__ (self):
+    def __init__ (self, country_name, start_date, end_date):
+        self.country_name = country_name
+        self.start_date = start_date
+        self.end_date = end_date
         self.locations = []
 
     def add(self, country_name, start_date, end_date):
         self.locations.append((country_name, start_date, end_date))
         start_date = start_date.strip().split('/')
-        if len(start_date[0]) < 4 and len(start_date[1]) < 2 and len(start_date[2]) <2:
+        if not len(start_date[0]) == 4 or len(start_date[1]) == 2 or len(start_date[2]) == 2:
             raise Error('Date does not follow format. YYYY/MM/DD')
+
         end_date = end_date.strip().split('/')
-        if len(end_date[0]) < 4 and len(end_date[1]) < 2 and len(end_date[2]) < 2:
+        if not len(end_date[0]) == 4 or len(end_date[1]) == 2 or len(end_date[2]) == 2:
             raise Error('Date does not follow format. YYYY/MM/DD')
         if start_date < end_date:
             self.locations.append((country_name, start_date, end_date))
         else:
             raise Error('End date is before start date')
 
-
-
     def current_country(self, date_string):
         for location in self.locations:
             if location[1] <= date_string <= location[2]:
                 return location[0]
-        raise Error('Date not found')
+            else:
+                return Error('Date not found')
 
+    # doesn't work properly
     def is_empty(self, is_empty):
-        if self.locations is False:
-            return False
-        else:
+        if self.locations is '':
             return True
-
+        else:
+            return False
 
 
 def main():
@@ -58,9 +61,9 @@ def main():
     print(australia.currency_string(100.236))
     print(australia)
 
-
-
+    # details = Details()
+    # print(details.is_empty())
 
 if __name__ == "__main__":
-     # execute only if run as a script
+    # execute only if run as a script
     main()
